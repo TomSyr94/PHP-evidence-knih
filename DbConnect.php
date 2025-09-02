@@ -1,9 +1,9 @@
 <?php
 
-$server = 'mysql.endora.cz';
+$server = 'localhost';
 $dbname = 'knihyevidence';
-$user = 'web123_tomassyrovy';
-$pass = 'Nevim123';
+$user = 'tomassyrovy';
+$pass = 'a';
 
 try {
     $conn = new PDO("mysql:host=$server;dbname=$dbname", $user, $pass);
@@ -11,3 +11,4 @@ try {
     echo "Chyba připojení: " . $e->getMessage();
 }
 ?>
+

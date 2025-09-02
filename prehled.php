@@ -23,12 +23,12 @@ $books = $result->fetchAll();
         </tr>
         <?php foreach ($books as $book): ?>
         <tr>
-            <td><?php echo $book['id']; ?></td>
-            <td><?php echo $book['isbn']; ?></td>
-            <td><?php echo $book['author_firstname']; ?></td>
-            <td><?php echo $book['author_lastname']; ?></td>
-            <td><?php echo $book['title']; ?></td>
-            <td><?php echo $book['description']; ?></td>
+            <td><?php echo htmlspecialchars($book['id']); ?></td>
+            <td><?php echo htmlspecialchars($book['isbn']); ?></td>
+            <td><?php echo htmlspecialchars($book['author_firstname']); ?></td>
+            <td><?php echo htmlspecialchars($book['author_lastname']); ?></td>
+            <td><?php echo htmlspecialchars($book['title']); ?></td>
+            <td><?php echo htmlspecialchars($book['description']); ?></td>
         </tr>
         <?php endforeach; ?>
     </table>

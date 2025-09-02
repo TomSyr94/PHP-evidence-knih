@@ -1,13 +1,10 @@
--- SQL skript pro tvorbu databáze, včetně tvorby uživatele a nastavení oprávnění
+SQL skript pro tvorbu databáze, včetně tvorby uživatele a nastavení oprávnění
 
--- 1. Vytvoření databáze
-CREATE DATABASE IF NOT EXISTS evidence_knih CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE evidence_knih CHARACTER SET utf8 COLLATE utf8mb4_czech_ci;
 
--- 2. Použití databáze
 USE evidence_knih;
 
--- 3. Vytvoření tabulky books
-CREATE TABLE IF NOT EXISTS books (
+CREATE TABLE books (
     id INT AUTO_INCREMENT PRIMARY KEY,
     isbn VARCHAR(20) NOT NULL,
     author_firstname VARCHAR(100) NOT NULL,
@@ -16,16 +13,10 @@ CREATE TABLE IF NOT EXISTS books (
     description TEXT
 );
 
--- 4. Vytvoření uživatele (pouze pokud neexistuje)
-CREATE USER IF NOT EXISTS 'knihy_user'@'localhost' IDENTIFIED BY 'knihy_heslo';
+CREATE USER 'knihy_user'@'localhost' IDENTIFIED BY 'knihy_heslo';
 
--- 5. Přidělení oprávnění uživateli
 GRANT SELECT, INSERT, UPDATE, DELETE ON evidence_knih.* TO 'knihy_user'@'localhost';
 
--- 6. Aplikování změn
-FLUSH PRIVILEGES;
-
--- 7. Vložení ukázkových dat (volitelně)
 INSERT INTO books (isbn, author_firstname, author_lastname, title, description) VALUES
 ('978-80-7203-123-4', 'Karel', 'Čapek', 'R.U.R.', 'Drama o robotech'),
 ('978-80-7336-456-7', 'Božena', 'Němcová', 'Babička', 'Klasický český román'),

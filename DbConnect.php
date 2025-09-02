@@ -1,8 +1,8 @@
 <?php
-// Připojení k databázi na hostingu Endora
+
 $server = 'mysql.endora.cz';
 $dbname = 'knihyevidence';
-$user = 'tomassyrovy';
+$user = 'web123_tomassyrovy';
 $pass = 'Nevim123';
 
 try {

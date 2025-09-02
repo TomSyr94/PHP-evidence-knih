@@ -2,11 +2,11 @@
 include 'DbConnect.php';
 
 if ($_POST) {
-    $isbn = $_POST['isbn'];
-    $jmeno = $_POST['jmeno'];
-    $prijmeni = $_POST['prijmeni'];
-    $nazev = $_POST['nazev'];
-    $popis = $_POST['popis'];
+    $isbn = addslashes($_POST['isbn']);
+    $jmeno = addslashes($_POST['jmeno']);
+    $prijmeni = addslashes($_POST['prijmeni']);
+    $nazev = addslashes($_POST['nazev']);
+    $popis = addslashes($_POST['popis']);
     
     if ($isbn && $jmeno && $prijmeni && $nazev) {
         $sql = "INSERT INTO books (isbn, author_firstname, author_lastname, title, description) VALUES ('$isbn', '$jmeno', '$prijmeni', '$nazev', '$popis')";
